@@ -1,0 +1,84 @@
+
+###
+
+GET http://localhost:5000 HTTP/1.1
+
+### GET USERS WITHOUT TOKEN
+
+GET http://localhost:5000/users HTTP/1.1
+
+### GET USERS WITH TOKEN
+
+GET http://localhost:5000/users HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmU5NzJmYTUwMjBkMzYwMDdhMzAxZSIsInJvbGVzIjpbIkFkbWluIl0sImlhdCI6MTYyMzE4MDM1MiwiZXhwIjoxNjIzMTgwMzY3fQ.znbGgkDmuKwwsJxfj-FRNJZZdOBBN21KXYDeKFrGbjQ
+
+### REGISTER NEW USER
+
+POST http://localhost:5000/register HTTP/1.1
+content-type: application/json
+
+{
+  "name": "{{$guid}}",
+  "password": "password"
+}
+
+### REGISTER EXISTING USER
+
+POST http://localhost:5000/register HTTP/1.1
+content-type: application/json
+
+{
+  "name": "admin",
+  "password": "password"
+}
+
+### LOGIN AS ADMIN
+
+POST http://localhost:5000/login HTTP/1.1
+content-type: application/json
+
+{
+  "name": "admin",
+  "password": "password"
+}
+
+### LOGIN AS USER
+
+POST http://localhost:5000/login HTTP/1.1
+content-type: application/json
+
+{
+  "name": "user",
+  "password": "password"
+}
+
+### LOGIN AS USER WITH WRONG NAME
+
+POST http://localhost:5000/login HTTP/1.1
+content-type: application/json
+
+{
+  "name": "not existing user",
+  "password": "wrong-password"
+}
+
+### LOGIN AS USER WITH WRONG PASSWORD
+
+POST http://localhost:5000/login HTTP/1.1
+content-type: application/json
+
+{
+  "name": "user",
+  "password": "wrong-password"
+}
+
+### GET DATA WITHOUT TOKEN
+
+GET http://localhost:5000/sample HTTP/1.1
+
+### GET DATA WITH TOKEN
+
+GET http://localhost:5000/sample HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmU5MjQxYTllOGQzMmQxMGJkYWU0ZSIsInJvbGVzIjpbIlVzZXIiXSwiaWF0IjoxNjIzMTc5Mjc1LCJleHAiOjE2MjMxNzkyOTB9.-Ik0M0paX-Es9jz6XN7A0MVXCrtqmdxXC8twLapzrm4
+
+###

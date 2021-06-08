@@ -1,0 +1,9 @@
+
+# Dependencies
+node_modules
+
+# Secret variables
+.env
+
+# 
+package-lock.json
